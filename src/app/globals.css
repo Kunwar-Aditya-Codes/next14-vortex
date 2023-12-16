@@ -71,3 +71,7 @@ body,
   border: solid 2px #172031;
   box-shadow: none;
 }
+
+.cl-userButtonPopoverCard {
+  background-color: #172031;
+}
