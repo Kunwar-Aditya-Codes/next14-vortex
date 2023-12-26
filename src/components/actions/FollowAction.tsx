@@ -1,7 +1,7 @@
 'use client';
 
 import { useTransition } from 'react';
-import { onFollow } from '../../../serverActions/follow';
+import { onFollow, onUnfollow } from '../../../serverActions/follow';
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
 
@@ -13,7 +13,7 @@ interface FollowActionProps {
 const FollowAction = ({ isFollowing, userId }: FollowActionProps) => {
   const [isPending, startTransition] = useTransition();
 
-  const onClick = () => {
+  const handleFollow = () => {
     startTransition(() => {
       onFollow(userId)
         .then((data) =>
@@ -23,14 +23,32 @@ const FollowAction = ({ isFollowing, userId }: FollowActionProps) => {
     });
   };
 
+  const handleUnfollow = () => {
+    startTransition(() => {
+      onUnfollow(userId)
+        .then((data) =>
+          toast.success(`You have unfollowed ${data.following.username}`)
+        )
+        .catch(() => toast.error('Something went wrong!'));
+    });
+  };
+
+  const onClick = () => {
+    if (isFollowing) {
+      handleUnfollow();
+    } else {
+      handleFollow();
+    }
+  };
+
   return (
     <Button
-      disabled={isFollowing || isPending}
+      disabled={isPending}
       variant={'default'}
       className='w-fit'
       onClick={onClick}
     >
-      Follow
+      {isFollowing ? 'Unfollow' : 'Follow'}
     </Button>
   );
 };
