@@ -12,6 +12,8 @@ export const getSelf = async () => {
     },
   });
 
+  console.log('user from auth>>>>>>', user);
+
   if (!user) throw new Error('NOT FOUND');
 
   return user;

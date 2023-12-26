@@ -16,7 +16,7 @@ export const Logo = () => {
           height={80}
           width={80}
           alt='logo'
-          className='w-12 h-12'
+          className='w-16 h-16 rounded-full'
         />
       </div>
       <div className={cn('flex flex-col items-center', font.className)}>
