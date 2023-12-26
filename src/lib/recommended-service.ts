@@ -2,9 +2,6 @@ import { getSelf } from './auth-service';
 import { db } from './db';
 
 export const getRecommended = async () => {
-
-  // TODO: resolve recommended user not creating
-
   let userId;
 
   try {

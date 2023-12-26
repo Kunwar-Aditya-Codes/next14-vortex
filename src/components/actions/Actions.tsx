@@ -1,5 +1,5 @@
 import { currentUser, SignInButton, UserButton } from '@clerk/nextjs';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import Link from 'next/link';
 import { Clapperboard } from 'lucide-react';
 

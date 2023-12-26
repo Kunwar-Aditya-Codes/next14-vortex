@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import Search from './Search';
-import Actions from './Actions';
+import Actions from './actions/Actions';
 
 const font = Poppins({
   subsets: ['latin'],
