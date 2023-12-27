@@ -55,7 +55,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // update user
   if (eventType === 'user.updated') {
     await db.user.update({
       where: {
@@ -68,7 +67,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // delete user
   if (eventType === 'user.deleted') {
     await db.user.delete({
       where: {

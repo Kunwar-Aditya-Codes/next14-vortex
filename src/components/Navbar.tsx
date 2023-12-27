@@ -12,7 +12,7 @@ const font = Poppins({
 
 const Navbar = () => {
   return (
-    <nav className='fixed top-0 w-full h-20  z-[49] bg-[#030712] border-b border-b-[#172031] px-2 lg:px-4 flex justify-between items-center shadow-sm'>
+    <nav className='fixed top-0 w-full h-20  z-[49]  border-b border-b-zinc-800 px-2 lg:px-4 flex justify-between items-center shadow-sm'>
       {/* logo */}
       <Link href={'/'}>
         <div className='flex items-center gap-x-4 hover:opacity-75 transition'>
