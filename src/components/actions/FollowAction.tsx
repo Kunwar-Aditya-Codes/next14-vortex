@@ -44,8 +44,8 @@ const FollowAction = ({ isFollowing, userId }: FollowActionProps) => {
   return (
     <Button
       disabled={isPending}
-      variant={'default'}
-      className='w-fit'
+      variant={'secondary'}
+      className='w-fit '
       onClick={onClick}
     >
       {isFollowing ? 'Unfollow' : 'Follow'}

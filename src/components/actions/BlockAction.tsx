@@ -41,7 +41,7 @@ const BlockAction = ({ isBlocked, userId }: BlockActionProps) => {
   return (
     <Button
       disabled={isPending}
-      className='w-fit bg-red-500 hover:bg-red-600'
+      className='w-fit bg-red-500 hover:bg-red-600 text-white'
       onClick={handleBlock}
     >
       Block
