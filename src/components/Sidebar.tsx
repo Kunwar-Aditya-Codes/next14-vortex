@@ -1,8 +1,8 @@
-import { getRecommended } from '@/lib/recommended-service';
+import { getRecommended } from '@/lib/services/recommended-service';
 import Recommended, { RecommendedSkeleton } from './Recommended';
 import Toggle, { ToggleSkeleton } from './Toggle';
 import Wrapper from './Wrapper';
-import { getFollowedUsers } from '@/lib/follow-service';
+import { getFollowedUsers } from '@/lib/services/follow-service';
 import FollowingUsers, { FollowingSkeleton } from './FollowingUsers';
 
 const Sidebar = async () => {

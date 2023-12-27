@@ -1,5 +1,5 @@
 import { getSelf } from './auth-service';
-import { db } from './db';
+import { db } from '../db';
 
 export const getFollowedUsers = async () => {
   try {
@@ -8,6 +8,13 @@ export const getFollowedUsers = async () => {
     const followingUsers = db.follow.findMany({
       where: {
         followerId: self.id,
+        following: {
+          blocking: {
+            none: {
+              blockedId: self.id,
+            },
+          },
+        },
       },
       include: {
         following: true,
