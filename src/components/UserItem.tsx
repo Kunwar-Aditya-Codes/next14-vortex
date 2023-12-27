@@ -12,7 +12,7 @@ import LiveBage from './LiveBage';
 interface UserItemProps {
   username: string;
   imageUrl: string;
-  isLive: boolean;
+  isLive?: boolean;
 }
 
 const UserItem = ({ imageUrl, isLive, username }: UserItemProps) => {
