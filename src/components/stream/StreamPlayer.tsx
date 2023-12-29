@@ -52,13 +52,13 @@ const StreamPlayer = ({ user, isFollowing, stream }: StreamPlayerProps) => {
             name={stream.name}
             thumbnailUrl={stream.thumbnailUrl}
           />
-          <AboutCard
+          {/* <AboutCard
             hostName={user.username}
             hostIdentity={user.id}
             viewerIdentity={identity}
             bio={user.bio}
             followedByCount={user._count.followedBy}
-          />
+          /> */}
         </div>
         <div className={cn('col-span-1', collapsed && 'hidden')}>
           <Chat

@@ -7,6 +7,8 @@ import {
 } from '@livekit/components-react';
 
 import { Skeleton } from '@/components/ui/skeleton';
+import UserAvatar from '../UserAvatar';
+import VerifiedMark from '../VerifiedMark';
 
 interface HeaderProps {
   imageUrl: string;
@@ -36,17 +38,17 @@ const Header = ({
   return (
     <div className='flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 items-start justify-between px-4'>
       <div className='flex items-center gap-x-3'>
-        {/* <UserAvatar
+        <UserAvatar
           imageUrl={imageUrl}
           username={hostName}
           size='lg'
           isLive={isLive}
           showBadge
-        /> */}
+        />
         <div className='space-y-1'>
           <div className='flex items-center gap-x-2'>
             <h2 className='text-lg font-semibold'>{hostName}</h2>
-            {/* <VerifiedMark /> */}
+            <VerifiedMark />
           </div>
           <p className='text-sm font-semibold'>{name}</p>
           {isLive ? (

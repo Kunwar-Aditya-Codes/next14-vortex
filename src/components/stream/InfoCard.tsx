@@ -4,8 +4,7 @@ import Image from 'next/image';
 import { Pencil } from 'lucide-react';
 
 import { Separator } from '@/components/ui/separator';
-
-// import { InfoModal } from './info-modal';
+import InfoModal from './InfoModal';
 
 interface InfoCardProps {
   name: string;
@@ -26,7 +25,7 @@ const InfoCard = ({
 
   return (
     <div className='px-4'>
-      <div className='rounded-xl bg-background'>
+      <div className='rounded-xl bg-zinc-800'>
         <div className='flex items-center gap-x-2.5 p-4'>
           <div className='rounded-md bg-blue-600 p-2 h-auto w-auto'>
             <Pencil className='h-5 w-5' />
@@ -39,7 +38,7 @@ const InfoCard = ({
               Maximize your visibility
             </p>
           </div>
-          {/* <InfoModal initialName={name} initialThumbnailUrl={thumbnailUrl} /> */}
+          <InfoModal initialName={name} initialThumbnailUrl={thumbnailUrl} />
         </div>
         <Separator />
         <div className='p-4 lg:p-6 space-y-4'>
