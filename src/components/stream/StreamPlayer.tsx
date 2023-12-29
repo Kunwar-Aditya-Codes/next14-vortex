@@ -4,8 +4,12 @@ import { useViewerToken } from '@/hooks/use-viewer';
 import { Stream, User } from '@prisma/client';
 import { LiveKitRoom } from '@livekit/components-react';
 import { cn } from '@/lib/utils';
-import { useSidebar } from '@/store/use-sidebar';
-import Video from './Video';
+import { useChatSidebar } from '@/store/use-chat-sidebar';
+import Video, { VideoSkeleton } from './Video';
+import Chat, { ChatSkeleton } from '../chat/Chat';
+import Header, { HeaderSkeleton } from './Header';
+import AboutCard from './AboutCard';
+import InfoCard from './InfoCard';
 
 interface StreamPlayerProps {
   user: User & { stream: Stream | null };
@@ -16,7 +20,7 @@ interface StreamPlayerProps {
 const StreamPlayer = ({ user, isFollowing, stream }: StreamPlayerProps) => {
   const { identity, name, token } = useViewerToken(user.id);
 
-  const { collapsed } = useSidebar((state) => state);
+  const { collapsed } = useChatSidebar((state) => state);
 
   if (!identity || !token || !name) {
     return <div>Cannot watch the stream!</div>;
@@ -34,7 +38,7 @@ const StreamPlayer = ({ user, isFollowing, stream }: StreamPlayerProps) => {
       >
         <div className='space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar pb-10'>
           <Video hostName={user.username} hostIdentity={user.id} />
-          {/* <Header
+          <Header
             hostName={user.username}
             hostIdentity={user.id}
             viewerIdentity={identity}
@@ -54,7 +58,18 @@ const StreamPlayer = ({ user, isFollowing, stream }: StreamPlayerProps) => {
             viewerIdentity={identity}
             bio={user.bio}
             followedByCount={user._count.followedBy}
-          /> */}
+          />
+        </div>
+        <div className={cn('col-span-1', collapsed && 'hidden')}>
+          <Chat
+            viewerName={name}
+            hostName={user.username}
+            hostIdentity={user.id}
+            isFollowing={isFollowing}
+            isChatEnabled={stream.isChatEnabled}
+            isChatDelayed={stream.isChatDelayed}
+            isChatFollowersOnly={stream.isChatFollowersOnly}
+          />
         </div>
       </LiveKitRoom>
     </>
@@ -66,10 +81,12 @@ export const StreamPlayerSkeleton = () => {
   return (
     <div className='grid grid-cols-1 lg:gap-y-0 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 h-full'>
       <div className='space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar pb-10'>
-        {/* <VideoSkeleton />
-        <HeaderSkeleton /> */}
+        <VideoSkeleton />
+        <HeaderSkeleton />
       </div>
-      <div className='col-span-1 bg-background'>{/* <ChatSkeleton /> */}</div>
+      <div className='col-span-1 bg-background'>
+        <ChatSkeleton />
+      </div>
     </div>
   );
 };
