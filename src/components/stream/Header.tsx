@@ -9,6 +9,7 @@ import {
 import { Skeleton } from '@/components/ui/skeleton';
 import UserAvatar from '../UserAvatar';
 import VerifiedMark from '../VerifiedMark';
+import Actions from './Actions';
 
 interface HeaderProps {
   imageUrl: string;
@@ -66,11 +67,11 @@ const Header = ({
           )}
         </div>
       </div>
-      {/* <Actions
+      <Actions
         isFollowing={isFollowing}
         hostIdentity={hostIdentity}
         isHost={isHost}
-      /> */}
+      />
     </div>
   );
 };
