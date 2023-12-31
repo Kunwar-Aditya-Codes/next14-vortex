@@ -1,7 +1,6 @@
 'use client';
 
 import { useViewerToken } from '@/hooks/use-viewer';
-import { Stream, User } from '@prisma/client';
 import { LiveKitRoom } from '@livekit/components-react';
 import { cn } from '@/lib/utils';
 import { useChatSidebar } from '@/store/use-chat-sidebar';
