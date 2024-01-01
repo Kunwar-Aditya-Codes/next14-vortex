@@ -17,9 +17,9 @@ const DashboardNavbar = () => {
       {/* logo */}
       <Link href={'/'}>
         <div className='flex items-center gap-x-4 hover:opacity-75 transition'>
-          <div className=' rounded-full bg-white/10 lg:p-1  mr-4 lg:mr-0'>
+          <div className='lg:p-1  mr-4 lg:mr-0'>
             <Image
-              src={'/main-logo.svg'}
+              src={'/main-logo.png'}
               height={80}
               width={80}
               alt='logo'
